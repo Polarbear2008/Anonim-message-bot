@@ -1,16 +1,16 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 WORKDIR /app
-COPY . /app
 
-# Install Poetry
-RUN pip install poetry
+# Copy requirements and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Create a virtual environment
-RUN python -m venv /venv
+# Copy the application code
+COPY . .
 
-# Activate the virtual environment and install dependencies
-RUN . /venv/bin/activate && poetry install --no-root
+# Expose port (Railway will set PORT environment variable)
+EXPOSE $PORT
 
 # Command to run the application
-CMD ["/venv/bin/python", "src/__main__.py"]
+CMD ["python", "src/__main__.py"]

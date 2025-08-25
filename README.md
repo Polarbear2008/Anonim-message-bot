@@ -1,14 +1,38 @@
-<h1 align="center">🤖 Anonymous ChatBot for Telegram 📱</h1>
+# Anonymous Message Bot
 
-<p align="center">
-  <a href="https://t.me/fsoky_community">
-    <img src="https://img.shields.io/badge/We're in telegram-blue?style=for-the-badge&logo=Telegram" alt="Telegram">
-  </a>
-</p>
+A Telegram bot that allows users to send and receive anonymous messages with unique links.
 
-* Python 3.10^
-* AIOgram 3.x
-* MongoDB (motor)
+## Features
+
+- **Anonymous messaging** with unique user links
+- **Reply functionality** for full conversations  
+- **Admin-only username visibility** for specified user IDs
+- **Group logging** to evidence channel with sender details
+- **All media types** supported (text, photos, videos, voice, stickers, documents)
+- **Supabase database** integration for user management
+
+## Deployment to Railway
+
+This bot is configured for deployment on Railway.com with the following files:
+- `railway.json` - Railway configuration
+- `Dockerfile` - Container configuration
+- `.railwayignore` - Files to ignore during deployment
+
+## Environment Variables
+
+Set these in Railway dashboard:
+- `BOT_TOKEN` - Your Telegram bot token
+- `SUPABASE_URL` - Supabase project URL
+- `SUPABASE_KEY` - Supabase anon key
+- `SUPABASE_SERVICE_KEY` - Supabase service role key
+- `ADMIN_USER_IDS` - Comma-separated admin user IDs
+- `LOG_GROUP_ID` - Telegram group ID for logging messages
+
+## Requirements
+
+- Python 3.11+
+- aiogram 3.x
+- Supabase
 
 #### Installation
 ```bash
