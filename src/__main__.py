@@ -2,6 +2,7 @@ import asyncio
 import logging
 
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
 from handlers import setup_routers
@@ -17,7 +18,7 @@ async def main() -> None:
     
     bot = Bot(
         config.BOT_TOKEN.get_secret_value(),
-        parse_mode=ParseMode.HTML
+        default=DefaultBotProperties(parse_mode=ParseMode.HTML)
     )
     dp = Dispatcher()
 
